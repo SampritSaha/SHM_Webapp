@@ -1,0 +1,21 @@
+<!-- templates/error.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error - SHM</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 style="color: red;">Error</h1>
+    <p class="guidance-text">{{ message }}</p>
+    <p class="guidance-text"> Go back re-upload your EXCEL file in the shown format.</p>
+    <a href="/" class="upload-btn">Back to Upload</a>
+  </div>
+
+  <footer class="footer-bar">
+    <p>Made by <strong>Samprit Saha</strong></p>
+  </footer>
+</body>
+</html>
