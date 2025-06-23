@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Structural Health Monitor</title>
+  <link href="{{url_for( 'static', filename = 'style.css')}}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Structural Health Monitor</h1>
+
+    <p class="guidance-text">
+      Please upload an Excel file with the following columns:<br>
+      <strong>Date, Time (sec), Acceleration (m/sec<sup>2</sup>)</strong>
+    </p>
+
+    <div class="image-row">
+      <div class="image-block">
+        <p class="label green">✅ Correct Format</p>
+        <img src="{{ url_for( 'static', filename = 'Correct.png') }} " alt="Correct Format">
+      </div>
+      <div class="image-block">
+        <p class="label red">❌ Wrong Format</p>
+        <img src="{{ url_for( 'static', filename = 'Wrong.png') }}" alt="Wrong Format">
+      </div>
+    </div>
+
+    <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data" onsubmit="showWaitMessage()">
+      <div class="form-group">
+        <label for="code-dropdown">Choose Code:</label>
+        <select id="code-dropdown" name="code">
+          <option value="BUREAUOFINDIANSTANDARDS">BUREAU OF INDIAN STANDARDS</option>
+          <option value="INTERNATIONALSTANDARD">INTERNATIONAL STANDARD</option>
+          <option value="DESTUCHENORM">DEUTSCHE NORM</option>
+          <option value="BRITISHSTANDARD">BRITISH STANDARD</option>
+        </select>
+      </div>
+
+      <label for="file-upload" class="upload-btn">UPLOAD EXCEL FILE</label>
+      <input type="file" id="file-upload" name="file" accept=".xls,.xlsx,.csv" onchange="document.getElementById('upload-form').submit();" hidden>
+    </form>
+    
+    
+  </div>
+  <footer class="footer-bar">
+    <p>Made by <strong>Samprit Saha</strong></p>
+    </footer>
+  <div id="status-bar" style="display:none;" class="status-bar">⏳ Uploading and Processing File...</div>
+</body>
+</html>

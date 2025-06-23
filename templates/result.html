@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Results - Smart Structural Health Monitor</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>SHM Analysis Results</h1>
+
+    <div class="upload-success-box">
+      <h2>✅ File Uploaded Successfully!</h2>
+      <p><strong>Selected Code:</strong> {{ code }}</p>
+      <p><strong>Filename:</strong> {{ filename }}</p>
+    </div>
+
+    <div class="chart-section">
+      <h2>📈 Acceleration vs Time</h2>
+      <img src="{{ url_for('static', filename=acc_chart) }}" alt="Acceleration vs Time" class="result-chart">
+    </div>
+
+    <div class="chart-section">
+      <h2>📊 Amplitude vs Frequency</h2>
+      <img src="{{ url_for('static', filename=amp_chart) }}" alt="Amplitude vs Frequency" class="result-chart">
+    </div>
+
+    {% if table_data %}
+    <div class="table-section">
+      <h2>📋 Prediction Table</h2>
+      <table class="result-table">
+        <thead>
+          <tr>
+            {% for col in table_data.columns %}
+              <th>{{ col }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in table_data.values %}
+            <tr>
+              {% for cell in row %}
+                <td>{{ cell }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+      <p>Sorry no prediction data available.</p>
+    {% endif %}
+
+
+    <a href="/" class="upload-btn"> Back to Upload </a>
+  </div>
+  <footer class="footer-bar">
+  <p>Made by <strong>Samprit Saha</strong></p>
+  </footer>
+</body>
+</html>
