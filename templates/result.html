@@ -25,6 +25,11 @@
       <img src="{{ url_for('static', filename=amp_chart) }}" alt="Amplitude vs Frequency" class="result-chart">
     </div>
 
+    <div class="chart-section">
+      <h2>📊 Velocity peak to peak vs Time</h2>
+      <img src="{{ url_for('static', filename=vpp_chart) }}" alt="Velocity(peak-peak) vs Time" class="result-chart">
+    </div>
+
     {% if table_data %}
     <div class="table-section">
       <h2>📋 Prediction Table</h2>

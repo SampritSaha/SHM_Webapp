@@ -116,3 +116,16 @@ select {
   box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.2);
   display: inline-block;
 }
+
+.chart-section {
+  text-align: left; /* This aligns text and images to the left */
+  margin-left: 0;
+}
+
+.result-chart {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
