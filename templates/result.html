@@ -30,7 +30,7 @@
       <img src="{{ url_for('static', filename=vpp_chart) }}" alt="Velocity(peak-peak) vs Time" class="result-chart">
     </div>
 
-    {% if table_data %}
+    {% if table_data is not none and not table_data.empty %}
     <div class="table-section">
       <h2>📋 Prediction Table</h2>
       <table class="result-table">
@@ -43,9 +43,9 @@
         </thead>
         <tbody>
           {% for row in table_data.values %}
-            <tr>
+            <tr class="{% if row[-1] == 1 %}unsafe-row{% else %}safe-row{% endif %}">
               {% for cell in row %}
-                <td>{{ cell }}</td>
+               <td>{{ cell }}</td>
               {% endfor %}
             </tr>
           {% endfor %}

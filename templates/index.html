@@ -29,11 +29,12 @@
     <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data" onsubmit="showWaitMessage()">
       <div class="form-group">
         <label for="code-dropdown">Choose Code:</label>
-        <select id="code-dropdown" name="code">
-          <option value="BUREAUOFINDIANSTANDARDS">BUREAU OF INDIAN STANDARDS</option>
-          <option value="INTERNATIONALSTANDARD">INTERNATIONAL STANDARD</option>
-          <option value="DESTUCHENORM">DEUTSCHE NORM</option>
-          <option value="BRITISHSTANDARD">BRITISH STANDARD</option>
+        <select name="code" id="code-dropdown">
+          <option value="ISO2372">ISO 2372: Vibration Severity (Machines)</option>
+          <option value="DIN4150">DIN 4150-3: Structural Vibration Limits</option>
+          <option value="BS7385">BS 7385-2: Ground Vibration Damage</option>
+          <option value="NCHRP">NCHRP: Highway Vibration Criteria</option>
+          <option value="FFT_ANALYSIS">FFT Threshold: Natural Frequency</option>
         </select>
       </div>
 
